@@ -6,7 +6,7 @@
 # catalog-version 0.1
 Name:		texlive-vwcol
 Version:	0.2
-Release:	1
+Release:	2
 Summary:	Variable-width multiple text columns
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/vwcol
