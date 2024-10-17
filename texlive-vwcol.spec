@@ -3,7 +3,7 @@ Version:	36254
 Release:	2
 Summary:	Variable-width multiple text columns
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/vwcol
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/vwcol
 License:	LPPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/vwcol.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/vwcol.doc.r%{version}.tar.xz
