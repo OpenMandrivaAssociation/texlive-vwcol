@@ -1,47 +1,22 @@
-Name:		texlive-vwcol
-Version:	36254
-Release:	2
+%global tl_name vwcol
+%global tl_revision 77682
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.2
+Release:	%{tl_revision}.1
 Summary:	Variable-width multiple text columns
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/vwcol
-License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/vwcol.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/vwcol.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/vwcol.source.r%{version}.tar.xz
+License:	lppl1.3
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/vwcol.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/vwcol.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/vwcol.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package provides a crude environment (vwcol) for
-typesetting multicolumn paragraph text of various column widths
-on a single page.
+The package provides a crude environment (vwcol) for typesetting
+multicolumn paragraph text of various column widths on a single page.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/vwcol/vwcol.sty
-%doc %{_texmfdistdir}/doc/latex/vwcol/README
-%doc %{_texmfdistdir}/doc/latex/vwcol/vwcol.pdf
-#- source
-%doc %{_texmfdistdir}/source/latex/vwcol/vwcol.dtx
-%doc %{_texmfdistdir}/source/latex/vwcol/vwcol.ins
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
